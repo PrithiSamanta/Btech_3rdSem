@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision 1</title>
+    <style>
+        .my-div {
+            border: 2px solid black;
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            animation: animation1 5s ease-in  infinite reverse ;
+        }
+
+        @keyframes animation1 {
+            0%{
+                top: 0;
+                left: 0;
+            }
+            25% {
+                left: 50%;
+                top: 0;
+            }
+            50%{
+                left: 50%;
+                top: 50%;
+            }
+            75%{
+                top: 50%;
+                left: 0;
+            }
+            100%{
+                top: 0;
+                left: 0;
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="my-div"></div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+ul li{
+    list-style: none;
+}
+ul li:hover{
+    background-color: red;
+}
+nav ul:nth-child(2){
+    width: max-content;
+}
+nav ul:nth-child(2) li:hover{
+    color: white;
+}
+nav{
+    background-color: transparent !important;
+}
+nav .logo-container{
+    background-color: rgba(252, 252, 252, 0.8) !important;
+}
+.carousel-inner{
+    max-height:1000px !important;
+}
+.bottom-main{
+    margin-top: 800px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+.bottom-main div div{
+    padding-right: 50px !important;
+}
+.bottom-main div:hover{
+    background-color: red;
+}
+.w-logo{
+    position: fixed;
+    z-index: 100;
+    right: 20px;
+    bottom: 80px;
+    border-radius: 50%;
+    background-color: rgb(0, 203, 0) !important;
+}
+.strip .first{
+    padding-left: 300px;
+}
+ol{
+    border: none;
+}
+ol li{
+    border: none !important;
+    padding-bottom: 50px;
+    display: list-item !important;
+}
+
+
+.programs ul li .img-cont{
+    height: 55px;
+    width: 55px;
+    padding: 12px !important;
+}
+.programs ul{
+    width: 85%;
+}
+.programs ul li:hover{
+    background-color: rgba(128, 128, 128, 0.06);
+}

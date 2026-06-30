@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function quickSort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+           let pivot = arr[arr.length - 1];
+           let left = [];
+           let right = [];
+            for (i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > pivot) right.push(arr[i]);
+                else left.push(arr[i]);
+            }
+           let leftSorted = quickSort(left);
+           let rightSorted = quickSort(right);
+           let mergedSort = [];
+            for (i = 0; i < leftSorted.length; i++) {
+                mergedSort.push(leftSorted[i]);
+            }
+            mergedSort.push(pivot);
+            for (i = 0; i < rightSorted.length; i++) {
+                mergedSort.push(rightSorted[i]);
+            }
+
+            return mergedSort;
+        }
+        arrStr = prompt("Enter array comma seperated without spaces");
+        arr = arrStr.split(',', arrStr.length);
+        for (i = 0; i < arr.length; i++) {
+            arr[i] = parseInt(arr[i]);   
+        }
+        
+        arr = quickSort(arr);
+
+        document.write("The quick sorted array is : " + arr)
+    </script>
+</body>
+
+</html>

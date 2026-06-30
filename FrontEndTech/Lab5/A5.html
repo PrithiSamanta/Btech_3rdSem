@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Str = prompt("Enter a sentence ");
+        arrStr = Str.split(' ',Str.length);
+        searchWord = prompt("Enter word to search") ;
+        for(i=0;i<arrStr.length;i++){
+            if(searchWord==arrStr[i]){
+                document.write(i);
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        n = parseInt(prompt("Enter a number : "));
+        if (isNaN(n)) document.write("Not a number ");
+        else if (n < 0 || n > 999) document.write("Out of range ");
+        else digitToWord(n);
+        function digitToWord(n) {
+            ans = '';
+            ones = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+            tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninty'];
+            hundred = ['', 'One hundred', 'Two hundred', 'Three hundred', 'Four hundred', 'Five hundred', 'Six hundred', 'Seven hundred', 'Eight hundred', 'Nine hundred'];
+
+            if (n == 0) {
+                ans = ones[0];
+                document.write(ans);
+                return;
+            }
+            while (n > 0) {
+                digit = n % 10;
+                if (digit == 0) continue;
+                if (n >= 100 && n <= 999) ans = ones[digit] + ans;
+                else if (n >= 20 && n <= 99) ans = tens[digit] + ans;
+                else {
+                    ans = hundred[n] + ans;
+                    break;
+                }
+
+                n = parseInt(n / 10);
+            }
+            for(i=3;i>0;i--){
+                digit=n/Math.pow(10,3);
+            }
+            document.write(ans);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        arrStr = prompt("Enter array comma seperated without spaces");
+        arr = arrStr.split(',', arrStr.length);
+        for (i = 0; i < arr.length; i++) {
+            arr[i] = parseInt(arr[i]);
+        }
+        arr = bubbleSort(arr);
+
+        function bubbleSort(arr) {
+            for (i = 0; i < arr.length - 1; i++) {
+                for (j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        document.write("The bubble sorted array is : " + arr)
+    </script>
+</body>
+
+</html>

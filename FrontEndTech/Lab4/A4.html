@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        n1 = parseInt(prompt("Enter a number : "));
+        n2 = parseInt(prompt("Enter another number : "));
+        sm = Math.min(n1,n2);
+        for(i=sm;i>=1;i--){
+            if(n1%i==0 && n2 %i==0){
+                sm=i;
+                break;
+            }
+        }
+        document.write("The GCD of "+n1+"and "+n2+" is "+sm);
+    </script>
+</body>
+</html>

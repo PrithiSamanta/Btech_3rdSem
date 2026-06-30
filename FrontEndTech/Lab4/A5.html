@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        n = parseInt(prompt("Enter a two digit number : "));
+        if(!(n>=10&&n<=99)) document.write("Enter a two digit number.")
+        else a5(n);
+
+        function a5(n){
+            base = parseInt(n/10);
+            power = n%10;
+            document.write(base+"<sup>"+power+"</sup> = "+Math.pow(base,power))
+        }
+    </script>
+</body>
+
+</html>

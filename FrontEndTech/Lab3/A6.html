@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        num = parseInt(prompt("Enter a number : "));
+        temp=num;
+        digit=0;
+        ans=0;
+        while(num>0){
+            num = parseInt(num/10);
+            digit++;
+        }
+        num=temp;
+        while(num!=0){
+            ans+=Math.pow(num%10,digit);
+            num = parseInt(num/10);
+        }
+        if(temp===ans) document.write("It is armstrong.");
+        else document.write("It is not armstrong.");
+    </script>
+</body>
+</html>

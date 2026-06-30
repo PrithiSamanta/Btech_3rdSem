@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        n1 = parseInt(prompt("Enter n1 : "));
+        n2 = parseInt(prompt("Enter n2 : "));
+        primeNos = "";
+        flag = 1;
+        for (i = Math.min(n1,n2); i <= Math.max(n1, n2); i++) {
+            flag = 1;
+            for (j = 2; j <= i / 2; j++) {
+                if (i % j == 0) flag = 0;
+            }
+            if (flag) primeNos += i + ", "
+        }
+        primeNos = primeNos.substring(0,primeNos.length-2);
+        document.write(primeNos)
+    </script>
+</body>
+
+</html>

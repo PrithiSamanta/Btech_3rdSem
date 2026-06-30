@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        a = parseFloat(prompt("Enter a"));
+        b = parseFloat(prompt("Enter b"));
+
+        op = prompt("Enter operator");
+        if(op=='+') document.write("a+b = "+(a+b));
+        else if(op=='-') document.write("a-b = "+(a-b));
+        else if(op=='*') document.write("a*b = "+(a*b));
+        else if(op=='/') document.write("a/b = "+(a/b));
+        else document.write("This operation is not supported in simple calculator");
+    </script>
+</body>
+</html>
