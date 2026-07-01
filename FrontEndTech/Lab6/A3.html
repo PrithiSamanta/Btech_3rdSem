@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        let students=[
+            {
+                name: "Student1",
+                rollNo : 1,
+                EnrNo : 26010101913,
+                degree : "B.Tech CSE",
+                department: "Engineering"
+            },
+            {
+                name: "Student2",
+                rollNo : 24,
+                EnrNo : 26010101125,
+                degree : "B.Tech Mechanical",
+                department: "Engineering"
+            },
+            {
+                name: "Student3",
+                rollNo : 11,
+                EnrNo : 26075101342,
+                degree : "B.Com",
+                department: "Commerce"
+            },
+            {
+                name: "Student4",
+                rollNo : 13,
+                EnrNo : 26028106674,
+                degree : "B.Ed",
+                department: "Arts"
+            }
+        ]
+        for(i=0;i<students.length;i++){
+           document.write( 
+            `<div class="card me-5 d-inline-block" style="width: 18rem;">
+            <img src="#" class="card-img-top" alt="Image not available">
+            <div class="card-body">
+            <h5 class="card-title">${students[i].name}</h5>
+            <p class="card-text my-2">Roll No. ${students[i].rollNo}</p>
+            <p class="card-text my-2">Enrollment No. ${students[i].EnrNo}</p>
+            <p class="card-text my-2">Degree ${students[i].degree}</p>
+            <p class="card-text my-2">Department ${students[i].department}</p>
+            <a href="#" class="btn btn-primary">View more details</a>
+            </div>
+            </div>`)
+        }
+    </script>
+</body>
+</html>

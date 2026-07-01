@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <script>
+        let products=[
+            {
+                name : "Nike Sport shoes",
+                category: "Shoes",
+                avlQuantity:10,
+                price : 2999
+            },
+            {
+                name : "Jake branded Shirt",
+                category: "Clothing",
+                avlQuantity:3,
+                price : 999
+            },
+            {
+                name : "Iphone 17 pro max",
+                category: "Electronics",
+                avlQuantity:7,
+                price : 149999
+            },
+            {
+                name : "Samsung 7litre washing machine",
+                category: "Electronics",
+                avlQuantity:2,
+                price : 24999
+            }
+        ]
+        for(i=0;i<products.length;i++){
+            document.write( 
+                `<div class="card me-5 d-inline-block" style="width: 18rem;">
+                <img src="#" class="card-img-top" alt="Image not available">
+                <div class="card-body">
+                <h5 class="card-title">${products[i].name}</h5>
+                <p class="card-text my-2">Category ${products[i].category}</p>
+                <p class="card-text my-2">Quantity Available ${products[i].avlQuantity}</p>
+                <p class="card-text my-2">Price ${products[i].price}</p>
+                <a href="#" class="btn btn-primary">View more details</a>
+                </div>
+                </div>`)
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
