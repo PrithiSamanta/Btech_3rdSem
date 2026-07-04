@@ -13,16 +13,11 @@
       currentDate = new Date();
       nextYear = new Date(currentDate.getFullYear() + 1, 0, 1);
       timeGap = nextYear.getTime() - currentDate.getTime();
-      month = Math.floor(timeGap / (1000 * 60 * 60 * 24 * 30));
-      timeGap = timeGap % (1000 * 60 * 60 * 24 * 30);
       days = Math.floor(timeGap / (1000 * 60 * 60 * 24));
-      timeGap = timeGap % (1000 * 60 * 60 * 24);
-      hours = Math.floor(timeGap / (1000 * 60 * 60));
-      timeGap = timeGap % (1000 * 60 * 60);
-      minutes = Math.floor(timeGap / (1000 * 60));
-      timeGap = timeGap % (1000 * 60);
-      seconds = Math.floor(timeGap / (1000));
-      console.log(`${month}Months : ${days}days : ${hours}hours : ${minutes}minutes : ${seconds}seconds`);
+      hours = Math.floor(timeGap / (1000 * 60 * 60) % 24);
+      minutes = Math.floor(timeGap / (1000 * 60) % 60);
+      seconds = Math.floor(timeGap / (1000) % 60);
+      console.log(`${days}days : ${hours}hours : ${minutes}minutes : ${seconds}seconds`);
     }
     setInterval(countDown, 1000)
   </script>
