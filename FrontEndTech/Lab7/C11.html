@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        date1=prompt("Enter date 1 in DDMMYYYY format.");
+        date2=prompt("Enter date 2 in DDMMYYYY format.");
+        d1 = new Date(date1.slice(4,8),date1.slice(2,4),date1.slice(0,2));
+        d2 = new Date(date2.slice(4,8),date2.slice(2,4),date2.slice(0,2));
+        timeGap = d2.getTime()-d1.getTime();
+        days = Math.floor(timeGap/(1000*60*60*24));
+        weekEnds = Math.floor((days*2)/7);
+        weekDays = days - weekEnds;
+        document.write("Gap between the two dates is <br/>")
+        document.write(`${days} Days | ${weekDays} WorkingDays | ${weekEnds} WeekEnds`);
+    </script>
+</body>
+</html>
