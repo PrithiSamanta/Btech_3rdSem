@@ -1,0 +1,19 @@
+<!-- Display the Current Date, Time, Day, Month, and Year using the Date object. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        d = new Date();
+        document.write("Current date : "+d+"<br/>")
+        document.write("Current time  :"+d.getTime()+"<br/>")
+        document.write("Day : "+d.getDate()+"<br/>")
+        document.write("Month : "+(d.getMonth()+1)+"<br/>")
+        document.write("Year : "+d.getFullYear()+"<br/>")
+    </script>
+</body>
+</html>
