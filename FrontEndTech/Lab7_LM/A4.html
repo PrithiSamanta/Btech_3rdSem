@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" name="myform">
+      <label for="userName">
+        UserName :
+        <input type="text" id="userName" name="userName" />
+      </label>
+      <label for="passWord">
+        Password :
+        <input type="password" id="passWord" name="passWord" />
+      </label>
+      <label for="rePassword">
+        Repeat Password :
+        <input type="password" id="rePassword" name="rePassword" />
+      </label>
+      <label for="dob">
+        Date of birth :
+        <input type="date" name="dob" id="dob" />
+      </label>
+      <label for="enrNo">
+        Enrollment No. :
+        <input type="text" id="enrNo" name="enrNo" />
+      </label>
+      <label for="email">
+        Email :
+        <input type="text" id="email" name="email" />
+      </label>
+      <button type="submit" onclick="formValidate(event)">Submit</button>
+      <ul id="errors"></ul>
+    </form>
+
+    <script>
+      myForm = document.forms;
+      console.log(myForm[0].passWord.value)
+      function formValidate(e) {
+        e.preventDefault();
+        errors = [];
+console.log(myForm[0].dob.value)
+        if (myForm[0].userName.value.length <8) {
+            // console.log("h")
+          errors.push("The username should be minimum of 8 characters");
+        }
+        if(myForm[0].passWord.value !=myForm[0].rePassword.value){
+            errors.push("Password and repeat password should be same")
+        }
+        date = new Date();
+        age = date.getFullYear() - myForm[0].dob.value.substring(0,4)
+        if(age <=18){
+            errors.push("Age must be greater than 18");
+        }
+        if (myForm[0].enrNo.length ===11) {
+          errors.push("Enrollment must be of 11 digits");
+        }
+
+        errorBox= document.getElementById("errors");
+        if(errors.length>0){
+            for(i=0;i<errors.length;i++){
+                errorBox.innerHTML+=`<li>${errors[i]}</li>`
+            }
+            return;
+        }
+        alert("Form validate successfully.")
+      }
+    </script>
+  </body>
+</html>
