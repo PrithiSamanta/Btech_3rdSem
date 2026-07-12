@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter expression" id="inputBox" />
+    <button onclick="abc(process)">Evaluate</button>
+    <h1 id="myH1"></h1>
+    <script>
+      function abc(pro) {
+        pro();
+        exp = document.getElementById("inputBox").value;
+        let ans;
+        try {
+          ans = eval(exp);
+        } catch (err) {
+          console.log(err);
+        }
+        setTimeout(()=>{
+            document.getElementById("myH1").innerText = ans;
+        },2000)
+      }
+      function process() {
+        document.getElementById("myH1").innerText = "Processing your result";
+      }
+    </script>
+  </body>
+</html>

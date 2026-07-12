@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            max-width: 600px;
+            gap: 1rem;
+            border: 2px solid grey;
+            margin: 10px;
+        }
+        form div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        #errorBox{
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <form action="">
+        <div>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname">
+        </div>
+        <div>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname">
+        </div>
+        <div>
+            <label for="dob">Date of birth</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+        <div>
+            <label for="cno">Contact number</label>
+            <input type="number" id="cno" name="cno">
+        </div>
+        <div>
+            <label for="email">Email ID</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div>
+            <button type="submit" onclick="validate(event)">Submit</button>
+        </div>
+    </form>
+    </div>
+    <div id="errorBox">
+
+    </div>
+    <script>
+        myForm = document.forms[0];
+        errorBox = document.getElementById("errorBox");
+        function validate(e){
+            e.preventDefault();
+            errorBox.innerHTML='';  
+            if(!new RegExp("[A-Za-z]").test(myForm.fname.value)){
+                errorBox.innerHTML += "The first name is not valid<br/>" 
+            }
+            if(!new RegExp("[A-Za-z]").test(myForm.lname.value)){
+                errorBox.innerHTML += "The last name is not valid<br/>" 
+            }
+            if(!new RegExp("^[0-9]{10}$").test(myForm.cno.value)){
+                errorBox.innerHTML += "The contact number is not valid<br/>" 
+            }
+            if(!new RegExp("[a-z0-9]{1,}[@][a-z]{1,}[.][a-z]{10,24}").test(myForm.email.value)){
+                errorBox.innerHTML += "The email is not valid<br/>" 
+            }
+        }
+    </script>
+</body>
+</html>
