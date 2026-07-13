@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Simple CRUD Operation :</h1>
+    <input type="text" id="name" />
+    <button onclick="add()">Add</button>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>SR No.</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      let studentlist = [];
+      function add() {
+        let name = document.getElementById("name").value;
+        if (name == "") return;
+        studentlist.push(name);
+        document.getElementById("name").value = "";
+        console.log(studentlist)
+        showData();
+      }
+      function showData() {
+        output = "";
+        for (let i = 0; i < studentlist.length; i++) {
+          output += `
+            <tr>
+          <td>${i + 1}</td>
+          <td>${studentlist[i]}</td>
+          <td>
+            <button onclick="update(${i})">Update</button
+            ><button onclick="deleteData(${i})">Delete</button>
+          </td>
+        </tr>
+            `;
+        }
+        document.getElementById("tbody").innerHTML=output;
+      }
+      function deleteData(i){
+        studentlist.splice(i,1);
+        showData()
+      }
+      function update(i){
+        const newName=prompt("Enter new name",studentlist[i]);
+        if(newName=="") return;
+        studentlist[i] = newName;
+        showData();
+      }
+    </script>
+  </body>
+</html>

@@ -158,8 +158,8 @@ int main()
             break;
 
         case 6:
-            int z;
             printf("Enter the position to be deleted : ");
+            int z;
             scanf("%d", &z);
             delPos(z);
             break;

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myBtn">Button</button>
+    <h1 id="myH1"></h1>
+    <script>
+        myBtn = document.getElementById("myBtn");
+        myH1 = document.getElementById("myH1")
+        myBtn.addEventListener("click",()=>{
+            console.log("hee")
+            myH1.innerHTML='Button clicked'
+        });
+        myBtn.addEventListener("dblclick",()=>{
+            myH1.innerHTML='Button double clicked'
+        });
+        myBtn.addEventListener("mousedown",()=>{
+            myH1.innerHTML='Mouse Down'
+        });
+        myBtn.addEventListener("mouseup",()=>{
+            myH1.innerHTML='Mouse Up'
+        });
+        myBtn.addEventListener("mouseover",()=>{
+            myH1.innerHTML='Mouse Over'
+        });
+        myBtn.addEventListener("mousemove",()=>{
+            myH1.innerHTML='Mouse Move'
+        });
+    </script>
+</body>
+</html>
