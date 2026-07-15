@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="d-flex justify-content-center mb-4">
+      <h1>Attendence Tracker</h1>
+    </nav>
+    <main class="row mx-5 flex-wrap" id="main">
+      <form class="row g-3 justify-content-center" onsubmit="prevent(event)">
+        <div class="col-auto">
+          <label for="inputPassword2" class="visually-hidden"
+            >Attendence Range</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter range"
+            id="rangeStr"
+          />
+          <span class="text-secondary">(Use - as seperator)</span>
+          <span id="warning" class="text-danger"></span>
+        </div>
+        <div class="col-auto">
+          <button
+            type="submit"
+            class="btn btn-primary mb-3"
+            onclick="startAttendence(event)"
+          >
+            Start Attendence
+          </button>
+        </div>
+      </form>
+      
+
+    </main>
+
+    <script>
+      function prevent(e) {
+        e.preventDefault();
+      }
+      function startAttendence(e) {
+        e.preventDefault();
+        let rangeStr = document.getElementById("rangeStr").value;
+        if (rangeStr == "") {
+          document.getElementById("warning").innerText =
+            "The input can't be empty";
+          return;
+        }
+
+        let range = rangeStr.split("-");
+        let start = parseInt(range[0]);
+        let end = parseInt(range[1]);
+
+        let main = document.getElementById("main");
+
+        // main.innerHTML='<div class="row mx-5 flex-wrap">'
+        for (i = start; i <= end; i++) {
+          let inst = "";
+          // if ((i - start) % 2 == 0) inst += `<div class="row mx-5">`;
+          inst += `
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-3 mb-sm-0 my-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">${i}</h5>
+        
+        <input class="form-check-input" type="checkbox" value="" id="checkDefault">
+   <label class="form-check-label" for="checkDefault">
+    Present
+    </label>
+    </div>
+    </div>
+  </div>
+    `;
+
+          // if ((i - start) % 2 != 0) inst += `</div>`;
+
+          main.innerHTML += inst;
+        }
+        // main.innerHTML+=`</div>`;
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
