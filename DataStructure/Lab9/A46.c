@@ -44,17 +44,18 @@ struct Node *insLast(int x, struct Node *first)
 struct Node * revLinkedList(struct Node *first){
     if (first==NULL)
     {
-        return 0;
+        return NULL;
     }
+    struct Node *next=NULL;
     struct Node *save=first;
     struct Node *pre = NULL;
     
     while (save!=NULL)
     {
-        struct Node *temp=save->link;
+        next=save->link;
         save->link=pre;
         pre=save;
-        save=temp;
+        save=next;
     }
     first=pre;
     return first;
