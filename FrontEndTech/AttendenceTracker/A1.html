@@ -10,14 +10,19 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <style>
+      footer {
+        margin-left: 12px;
+      }
+    </style>
   </head>
   <body>
-    <nav class="d-flex justify-content-center mb-4">
-      <h1>Attendence Tracker</h1>
+    <nav class="d-flex justify-content-center mb-3">
+      <h1 class="fw-bold text-decoration-underline">Attendence Tracker</h1>
     </nav>
     <main class="row mx-5 flex-wrap" id="main">
       <form class="row g-3 justify-content-center" onsubmit="prevent(event)">
-        <div class="col-auto">
+        <div class="col-auto mt-0">
           <label for="inputPassword2" class="visually-hidden"
             >Attendence Range</label
           >
@@ -30,7 +35,7 @@
           <span class="text-secondary">(Use - as seperator)</span>
           <span id="warning" class="text-danger"></span>
         </div>
-        <div class="col-auto">
+        <div class="col-auto mt-0">
           <button
             type="submit"
             class="btn btn-primary mb-3"
@@ -40,10 +45,29 @@
           </button>
         </div>
       </form>
-      
 
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <button
+            class="visually-hidden btn btn-success"
+            id="check"
+            onclick="checkAll()"
+          >
+            Mark all present
+          </button>
+        </div>
+      </div>
     </main>
-
+    <footer id="footer" class="mb-5">
+      <button
+        class="visually-hidden btn btn-primary mx-5"
+        id="submitAtt"
+        onclick="subAttendence()"
+      >
+        Submit Attendence
+      </button>
+      <div id="attendenceStatus"></div>
+    </footer>
     <script>
       function prevent(e) {
         e.preventDefault();
@@ -63,30 +87,55 @@
 
         let main = document.getElementById("main");
 
-        // main.innerHTML='<div class="row mx-5 flex-wrap">'
+        let inst = "";
         for (i = start; i <= end; i++) {
-          let inst = "";
-          // if ((i - start) % 2 == 0) inst += `<div class="row mx-5">`;
           inst += `
-  <div class="col-sm-6 col-md-4 col-lg-3 mb-3 mb-sm-0 my-2">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">${i}</h5>
-        
-        <input class="form-check-input" type="checkbox" value="" id="checkDefault">
-   <label class="form-check-label" for="checkDefault">
-    Present
-    </label>
-    </div>
-    </div>
-  </div>
-    `;
-
-          // if ((i - start) % 2 != 0) inst += `</div>`;
-
-          main.innerHTML += inst;
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3 my-2">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Roll No: ${i}</h5>
+                  <input class="form-check-input check" type="checkbox" value="" id="checkDefault${i}">
+                  <label class="form-check-label" for="checkDefault${i}">
+                    Present
+                  </label>
+                </div>
+              </div>
+            </div>
+          `;
         }
-        // main.innerHTML+=`</div>`;
+        main.innerHTML += inst;
+
+        document
+          .getElementById("submitAtt")
+          .classList.remove("visually-hidden");
+
+        document.getElementById("check").classList.remove("visually-hidden");
+      }
+
+      function checkAll() {
+        const checkBoxes = document.getElementsByClassName("check");
+        for (let i = 0; i < checkBoxes.length; i++) {
+          checkBoxes[i].checked = true;
+        }
+      }
+
+      let totalPresent = 0;
+      let totalAbsent = 0;
+
+      function subAttendence() {
+        totalPresent = 0;
+        totalAbsent = 0;
+
+        const checkBoxes = document.getElementsByClassName("check");
+        for (let i = 0; i < checkBoxes.length; i++) {
+          if (checkBoxes[i].checked) totalPresent++;
+          else totalAbsent++;
+        }
+        let statusBox = document.getElementById("attendenceStatus");
+        statusBox.innerHTML = `
+        <div class="fw-bold mx-5 my-1">Total present = ${totalPresent}</div>
+        <div class="fw-bold mx-5 my-1">Total absent= ${totalAbsent}</div>
+        `;
       }
     </script>
     <script
