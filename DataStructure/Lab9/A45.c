@@ -44,7 +44,7 @@ struct Node *copyList(struct Node *first1, struct Node *first2)
     if (first1 == NULL)
     {
         printf("The linked list is empty.");
-        return 0;
+        return NULL;
     }
     struct Node *save1 = first1;
     struct Node *save2 = first2;
@@ -56,15 +56,13 @@ struct Node *copyList(struct Node *first1, struct Node *first2)
         if (first2 == NULL)
         {
             first2 = newNode;
-            save1 = save1->link;
-            continue;
+            save2 = first2;
         }
-        struct Node *save = first2;
-        while (save->link != NULL)
+        else
         {
-            save = save->link;
+            save2->link = newNode;
+            save2 = newNode;
         }
-        save->link = newNode;
 
         save1 = save1->link;
     }
