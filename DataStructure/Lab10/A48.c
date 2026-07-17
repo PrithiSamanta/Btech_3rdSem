@@ -41,43 +41,48 @@ struct Node *insLast(int x, struct Node *first)
     return first;
 }
 
-int countNode(struct Node *first){
-    int count=0;
-    struct Node *save=first;
-    while (save!=NULL)
+int countNode(struct Node *first)
+{
+    int count = 0;
+    struct Node *save = first;
+    while (save != NULL)
     {
         count++;
-        save=save->link;
+        save = save->link;
     }
     return count;
 }
 
-struct Node * swapK(struct Node *first,int k){
-    int n=countNode(first);
-    struct Node *save=first;
-    struct Node *save1=NULL;
-    struct Node *save2=NULL;
+struct Node *swapK(struct Node *first, int k)
+{
+    int n = countNode(first);
+    struct Node *save = first;
+    struct Node *save1 = NULL;
+    struct Node *save2 = NULL;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        save=save->link;
-        if (i==n-k+1)
+        if (i == n - k - 1)
         {
-            save1=save;
-            save2=first;
+            save1 = save;
         }
-        save2=save2->link;
+        if (i == k)
+        {
+            save2 = save;
+        }
+        save = save->link;
     }
-    int temp=save2->info;
-    save2->info=save1->info;
-    save1->info=temp;
+    int temp = save2->info;
+    save2->info = save1->info;
+    save1->info = temp;
 
     return first;
 }
 
-int main(){
-     struct Node *first = NULL;
-
+int main()
+{
+    struct Node *first = NULL;
+    struct Node *swapped = NULL;
     for (int i = 0; i < 5; i++)
     {
         printf("Enter the value to insert : ");
@@ -86,9 +91,9 @@ int main(){
         first = insLast(val, first);
     }
 
-//  printf("%d",countNode(first));
-    first=swapK(first,2);
-    displayList(first);
+    // printf("%d", countNode(first));
+    swapped = swapK(first, 1);
+    displayList(swapped);
 
     return 0;
 }
