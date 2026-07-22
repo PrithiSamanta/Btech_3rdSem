@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="msg">Click On mouse</h2>
+
+    <script>
+        const msg = document.getElementById("msg");
+        document.addEventListener('mousedown', e => {
+            if (e.button == 1) msg.innerText = "Wheel click";
+            else if (e.button == 0) msg.innerText = "Left click";
+            else if (e.button = 2) msg.innerText = "Right click";
+        })
+
+        document.addEventListener("contextmenu", e => e.preventDefault());
+    </script>
+</body>
+
+</html>

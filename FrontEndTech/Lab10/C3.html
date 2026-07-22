@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #checkBoxCont {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="checkBoxCont"></div>
+
+    <div id="summary"></div>
+    <script>
+        let container = document.getElementById("checkBoxCont");
+
+        for (let i = 0; i < 10; i++) {
+            container.innerHTML +=
+                `
+            <div><input type='checkbox' id='${i + 1}' class="checkbox" onclick="review()"><label for='${i + 1}'>${i + 1}</label></div>
+            `;
+        }
+
+        const summary = document.getElementById("summary");
+
+        let checkboxes = document.getElementsByClassName("checkbox");
+
+        function review() {
+            summary.innerHTML = "";
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) summary.innerHTML += `${checkboxes[i].id}, `
+            }
+            summary.innerHTML = summary.innerHTML.slice(0, summary.innerHTML.length - 2)
+        }
+    </script>
+</body>
+
+</html>
