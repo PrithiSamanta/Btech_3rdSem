@@ -47,13 +47,13 @@ int isValid(char str[])
             }
 
             char ch = pop(&top);
-            if (str[i] != ')' && ch == '(' || str[i] != ']' && ch == '[' || str[i] != '}' && ch == '{')
+            if ((str[i] != ')' && ch == '(') || (str[i] != ']' && ch == '[') || (str[i] != '}' && ch == '{'))
             {
                 return 0;
             }
         }
     }
-    if (str[i] == '\0' && top == NULL)
+    if (top == NULL)
     {
         return 1;
     }
