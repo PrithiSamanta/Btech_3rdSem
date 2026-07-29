@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1" cellpadding="10">
+      <tr>
+        <th>Name</th>
+        <th>Roll no</th>
+      </tr>
+      <tr>
+        <td>Rahul</td>
+        <td>101</td>
+      </tr>
+    </table>
+    <button>Click</button>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+    <script>
+      $("button").click(() =>
+        $("table").append("<tr><td>Hello World</td><td>122</td><tr>"),
+      );
+    </script>
+  </body>
+</html>
