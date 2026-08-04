@@ -1,98 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <form action="" id="form">
-        <label for="fname">First Name</label>
-        <input type="text" name="fname" id="fname">
+      <label for="fname">First Name</label>
+      <input type="text" name="fname" id="fname" />
 
-        <label for="lname">Last Name</label>
-        <input type="text" name="lname" id="lname">
+      <label for="lname">Last Name</label>
+      <input type="text" name="lname" id="lname" />
 
-        <label for="age">Age</label>
-        <input type="number" name="age" id="age">
+      <label for="age">Age</label>
+      <input type="number" name="age" id="age" />
 
-        <label for="sem">Semester</label>
-        <input type="number" name="sem" id="sem">
+      <label for="sem">Semester</label>
+      <input type="number" name="sem" id="sem" />
 
-        <button id="addStud">ADD STUDENT</button>
+      <button id="addStud">ADD STUDENT</button>
     </form>
     <button class="delete">add</button>
     <table border="1" cellpadding="5">
-        <thead>
-            <tr>
-            <th>
-                First Name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Semester
-            </th>
-            <th>
-                Action
-            </th>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Semester</th>
+          <th>Action</th>
         </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
+      </thead>
+      <tbody></tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
     <script>
-        let students = [];
-        $("#addStud").click((e) => {
-            e.preventDefault();
-            let formChild = $("#form").children()
+      let students = [];
+      let formChild = $("#form").children();
+      $("#addStud").click((e) => {
+        e.preventDefault();
 
-            // let inst = "<tr>"
-            // for(let i=1;i<formChild.length;i=i+2){
-            //     inst+=`<td>${formChild[i].value}</td>`
-            // }
-            // inst+=`<td><button class='update' id=''>Update</button><button class='delete' id='' onclick='deletedata()'>Delete</button></td></tr>`
-            // // students.push(inst);
-            let instObj = {fname : formChild[1].value,lname : formChild[3].value,age : formChild[5].value,sem : formChild[7].value}
-            students.push(instObj)
+        // let inst = "<tr>"
+        // for(let i=1;i<formChild.length;i=i+2){
+        //     inst+=`<td>${formChild[i].value}</td>`
+        // }
+        // inst+=`<td><button class='update' id=''>Update</button><button class='delete' id='' onclick='deletedata()'>Delete</button></td></tr>`
+        // // students.push(inst);
+        let instObj = {
+          fname: formChild[1].value,
+          lname: formChild[3].value,
+          age: formChild[5].value,
+          sem: formChild[7].value,
+        };
+        students.push(instObj);
 
-            showData()
-            // $("table").append(inst);
-        })
+        formChild[1].value = "";
+        formChild[2].value = "";
+        formChild[3].value = "";
+        formChild[4].value = "";
 
-        function showData(){
-            $("table tbody").html("")
-            for(let i=0;i<students.length;i++){
-                $("table tbody").append(
-                    `<tr>
+        showData();
+      });
+
+      function showData() {
+        $("table tbody").html("");
+        for (let i = 0; i < students.length; i++) {
+          $("table tbody").append(
+            `<tr>
                         <td>${students[i].fname}</td>
                         <td>${students[i].lname}</td>
                         <td>${students[i].age}</td>
                         <td>${students[i].sem}</td>
                         <td><button class='update' id='' onclick='update(${i})'>Update</button><button class='delete' id='' onclick='deletedata(${i})'>Delete</button></td>
-                    </tr>`
-                )
-            }
+                    </tr>`,
+          );
         }
+      }
 
-        // $(document).click((e)=>{
-        // console.log(students)
-        //     // console.log("hi")
-        //     // if(e.target && e.target.class)
-        // })
+      function deletedata(i) {
+        students.splice(i, 1);
+        showData();
+      }
 
-        function deletedata(i){
-            students.splice(i,1)
-        }
+      function update(i) {
+        students[i].fname = prompt("First Name", students[i].fname);
+        students[i].lname = prompt("Last Name", students[i].lname);
+        students[i].age = prompt("Age", students[i].age);
+        students[i].sem = prompt("Sem", students[i].sem)
+
+      }
     </script>
-</body>
-
+  </body>
 </html>
