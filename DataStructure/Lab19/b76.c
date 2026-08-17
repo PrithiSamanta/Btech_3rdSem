@@ -34,22 +34,33 @@ struct TreeNode *insertNode(struct TreeNode *root)
 {
     int val;
     printf("Enter value to insert. Enter -1 to not insert anything.\n");
-    
+
+    scanf("%d", &val);
+
+    if (val == -1)
+    {
+        return NULL;
+    }
+
+    struct TreeNode *newNode = createNode(val);
+
+    printf("Enter value to insert for left subtree of %d.\n", newNode->data);
+    newNode->left = insertNode(newNode->left);
+
+    printf("Enter value to insert for right subtree of %d.\n", newNode->data);
+    newNode->right = insertNode(newNode->right);
+
+    return newNode;
 }
 
-int main(){
-    struct TreeNode *root1=NULL;
-    root1=insertNode(root1,12);
-    root1=insertNode(root1,23);
-    root1=insertNode(root1,2);
-    root1=insertNode(root1,3);
+int main()
+{
+    struct TreeNode *root1 = NULL;
+    root1 = insertNode(root1);
 
-    struct TreeNode *root2=NULL;
-    root2=insertNode(root2,12);
-    root2=insertNode(root2,23);
-    root2=insertNode(root2,2);
-    root2=insertNode(root2,4);
+    struct TreeNode *root2 = NULL;
+    root2 = insertNode(root2);
 
-    printf("%s",isSame(root1,root2)?"Given trees are same.":"Given trees are not same.");
+    printf("%s", isSame(root1, root2) ? "Given trees are same." : "Given trees are not same.");
     return 0;
 }
