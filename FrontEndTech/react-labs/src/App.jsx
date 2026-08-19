@@ -1,17 +1,41 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import A1 from "./Lab17/A1";
-import B2 from "./Lab17/B2";
-import { B3 } from "./Lab17/B3";
-import C4 from "./Lab17/C4";
+import A1_17 from "./Lab17/A1";
+import B2_17 from "./Lab17/B2";
+import B3_17 from "./Lab17/B3";
+import C4_17 from "./Lab17/C4";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./Home";
+import Layout20 from "./Lab20/Layout";
+import Layout17 from "./Lab17/Layout";
+import Home20 from "./Lab20/Home";
+import Services20 from "./Lab20/Services";
+import Contact20 from "./Lab20/Contact";
+import About20 from "./Lab20/About";
+import "./App.css"
 
 function App() {
   return (
     <>
-      <h2>List of fruits</h2>
-      <A1 />
-      <B2 />
-      <B3 />
-      <C4/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/lab17" element={<Layout17 />}>
+              <Route path="a1" element={<A1_17 />} />
+              <Route path="b2" element={<B2_17 />} />
+              <Route path="b3" element={<B3_17 />} />
+              <Route path="c4" element={<C4_17 />} />
+            </Route>
+            <Route path="/lab20" element={<Layout20 />}>
+              <Route path="home" element={<Home20 />} />
+              <Route path="services" element={<Services20 />} />
+              <Route path="about" element={<About20 />} />
+              <Route path="contact" element={<Contact20 />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

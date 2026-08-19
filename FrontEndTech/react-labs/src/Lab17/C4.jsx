@@ -80,4 +80,4 @@ function C4() {
   );
 }
 
-export default C4;
+export default C4 ;

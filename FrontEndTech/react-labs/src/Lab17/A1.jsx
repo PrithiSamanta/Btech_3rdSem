@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
 function A1() {
-    const fruits = ["Mango", "Banana", "Apple", "Kiwi"]
-    return (
-        <ul>
-            {fruits.map((fruit) =>
-                <li>{fruit}</li>
-            )}
-        </ul>
-    )
+  const fruits = ["Mango", "Banana", "Apple", "Kiwi"];
+  return (
+    <ul>
+      {fruits.map((fruit) => (
+        <li>{fruit}</li>
+      ))}
+    </ul>
+  );
 }
 
-export default A1
+export default A1 ;

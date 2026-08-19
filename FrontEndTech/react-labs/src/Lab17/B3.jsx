@@ -24,4 +24,4 @@ function B3() {
     )
 }
 
-export {B3};
+export default B3;
