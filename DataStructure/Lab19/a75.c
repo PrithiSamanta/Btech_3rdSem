@@ -26,13 +26,13 @@ struct TreeNode *insertNode(struct TreeNode *root, int val)
     }
     if (root->data < val)
     {
-        insertNode(root->right, val);
+        root->right = insertNode(root->right, val);
     }
-    else if(root->data >val){
-        insertNode(root->left,val);
-
+    else if (root->data > val)
+    {
+        root->left = insertNode(root->left, val);
     }
-    return createNode(val);
+    return root;
 }
 
 void search(struct TreeNode *root,int val){
@@ -72,7 +72,7 @@ int main(){
     root=insertNode(root,23);
     root=insertNode(root,3);
     root=insertNode(root,12);
-    root=insertNode(root,23);
+    root=insertNode(root,2);
     preOrder(root);
     return 0;
 }

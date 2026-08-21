@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int max(int a, int b)
+{
+    return a > b ? a : b;
+}
+
 struct TreeNode
 {
     int data;
@@ -20,16 +25,25 @@ struct TreeNode *createNode(int val)
     return newNode;
 }
 
+int findHeight(struct TreeNode *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    return max(findHeight(root->right), findHeight(root->left)) + 1;
+}
+
 int setBalanced(struct TreeNode *root)
 {
-    // int length = 0;
     if (root == NULL)
     {
         return 0;
     }
     int left = 0, right = 0;
-    left = left + setBalanced(root->left);
-    right = right + setBalanced(root->right);
+    left = findHeight(root->left);
+    right = findHeight(root->right);
 
     if (left == right + 1)
     {
