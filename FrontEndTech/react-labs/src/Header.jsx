@@ -10,6 +10,9 @@ function Header() {
       <Link className="link fs-5" to="/lab20">
         Lab20
       </Link>
+      <Link className="link fs-5" to="/lab21">
+        Lab21
+      </Link>
     </div>
   );
 }

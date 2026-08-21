@@ -12,7 +12,10 @@ import Home20 from "./Lab20/Home";
 import Services20 from "./Lab20/Services";
 import Contact20 from "./Lab20/Contact";
 import About20 from "./Lab20/About";
+import Layout21 from "./Lab21/Layout"
 import "./App.css"
+import A1_21 from "./Lab21/A1";
+import A2_21 from "./Lab21/A2";
 
 function App() {
   return (
@@ -32,6 +35,10 @@ function App() {
               <Route path="services" element={<Services20 />} />
               <Route path="about" element={<About20 />} />
               <Route path="contact" element={<Contact20 />} />
+            </Route>
+            <Route path="/lab21" element={<Layout21 />}>
+              <Route path="a1" element={<A1_21 />} />
+              <Route path="a2" element={<A2_21 />} />
             </Route>
           </Route>
         </Routes>
