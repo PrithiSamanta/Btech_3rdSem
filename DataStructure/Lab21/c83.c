@@ -18,6 +18,8 @@ struct PhoneBook *createEntry(char *n, char *p)
     strcpy(newEntry->phNo, p);
     newEntry->right = NULL;
     newEntry->left = NULL;
+
+    return newEntry;
 }
 
 struct PhoneBook *addEntryInPlace(struct PhoneBook *root, char *n, char *p)
@@ -56,31 +58,89 @@ struct PhoneBook *addEntry(struct PhoneBook *root)
     return addEntryInPlace(root, n, p);
 }
 
-void searchNum(struct PhoneBook *root,char *n){
-    if (root==NULL)
+void searchNum(struct PhoneBook *root, char *n)
+{
+    if (root == NULL)
     {
         printf("Phone number doesn't exist.");
         return;
     }
-    else if (strcmp(root->name,n)>0)
+    else if (strcmp(root->name, n) > 0)
     {
-        searchNum(root->left,n);
+        searchNum(root->left, n);
     }
-    else if (strcmp(root->name,n)<0)
+    else if (strcmp(root->name, n) < 0)
     {
-        searchNum(root->right,n);
+        searchNum(root->right, n);
     }
-    else if(strcmp(root->name,n)==0){
+    else if (strcmp(root->name, n) == 0)
+    {
         printf("%s - %s\n", root->name, root->phNo);
     }
 }
 
-void numTosearch(struct PhoneBook *root){
+void numTosearch(struct PhoneBook *root)
+{
     printf("Enter the name whose phone number to search : ");
     char n[100];
-    scanf("%s",n);
+    scanf("%s", n);
 
-    searchNum(root,n);
+    searchNum(root, n);
+}
+
+struct PhoneBook *deleteNum(struct PhoneBook *root, char *n)
+{
+    if (root == NULL)
+    {
+        printf("Phone number doesn't exist.");
+        return NULL;
+    }
+    else if (strcmp(root->name, n) > 0)
+    {
+        root->left = deleteNum(root->left, n);
+    }
+    else if (strcmp(root->name, n) < 0)
+    {
+        root->right = deleteNum(root->right, n);
+    }
+    else if (strcmp(root->name, n) == 0)
+    {
+
+        if (root->left == NULL)
+        {
+            struct PhoneBook *temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if (root->right == NULL)
+        {
+            struct PhoneBook *temp = root->left;
+            free(root);
+            return temp;
+        }
+        else
+        {
+            struct PhoneBook *succ = root->right;
+            while (succ->left != NULL)
+            {
+                succ = succ->left;
+            }
+            strcpy(root->name, succ->name);
+            strcpy(root->phNo, succ->phNo);
+
+            root->right = deleteNum(root->right, succ->name);
+        }
+    }
+    return root;
+}
+
+struct PhoneBook *numToDelete(struct PhoneBook *root)
+{
+    printf("Enter the name which entry to be deleted : ");
+    char n[100];
+    scanf("%s", n);
+
+    return deleteNum(root, n);
 }
 
 void displayAscending(struct PhoneBook *root)
@@ -96,10 +156,52 @@ void displayAscending(struct PhoneBook *root)
 int main()
 {
     struct PhoneBook *root = NULL;
-    root = addEntry(root);
-    
-    // root=addEntry(root);/
-    // addEntry(root);
-    displayAscending(root);
+
+    while (1)
+    {
+        printf("What you want to do :\n");
+        printf("1. Add a phone book record:\n");
+        printf("2. Remove entry from phone book:\n");
+        printf("3. Search phone number :\n");
+        printf("4. List all entries in ascending order of name  :\n");
+        printf("-1. To end the loop.\n");
+
+        int choice;
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+        {
+            root = addEntry(root);
+            break;
+        }
+        case 2:
+        {
+            root = numToDelete(root);
+            break;
+        }
+        case 3:
+        {
+            numTosearch(root);
+            break;
+        }
+        case 4:
+        {
+            if (root == NULL)
+                printf("Phone Book is empty.\n");
+            else
+                displayAscending(root);
+            break;
+        }
+        case -1:
+            printf("Exiting...\n");
+            return 0;
+
+        default:
+            printf("Invalid choice! Please try again.\n");
+        }
+    }
+
     return 0;
 }
