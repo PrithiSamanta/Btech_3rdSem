@@ -8,14 +8,17 @@ import Layout from "./Layout";
 import Home from "./Home";
 import Layout20 from "./Lab20/Layout";
 import Layout17 from "./Lab17/Layout";
+import Layout18 from "./Lab18/Layout";
 import Home20 from "./Lab20/Home";
 import Services20 from "./Lab20/Services";
 import Contact20 from "./Lab20/Contact";
 import About20 from "./Lab20/About";
-import Layout21 from "./Lab21/Layout"
-import "./App.css"
+import Layout21 from "./Lab21/Layout";
+import "./App.css";
 import A1_21 from "./Lab21/A1";
 import A2_21 from "./Lab21/A2";
+import A_18 from "./Lab18/A/App";
+import B_18 from "./Lab18/B/App";
 
 function App() {
   return (
@@ -29,6 +32,10 @@ function App() {
               <Route path="b2" element={<B2_17 />} />
               <Route path="b3" element={<B3_17 />} />
               <Route path="c4" element={<C4_17 />} />
+            </Route>
+            <Route path="/lab18" element={<Layout18 />}>
+              <Route path="a" element={<A_18 />} />
+              <Route path="b" element={<B_18 />} />
             </Route>
             <Route path="/lab20" element={<Layout20 />}>
               <Route path="home" element={<Home20 />} />
