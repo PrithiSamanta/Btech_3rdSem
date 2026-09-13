@@ -10,6 +10,9 @@ function Header() {
       <Link className="link fs-5" to="/lab18">
         Lab18
       </Link>
+      <Link className="link fs-5" to="/lab19">
+        Lab19
+      </Link>
       <Link className="link fs-5" to="/lab20">
         Lab20
       </Link>

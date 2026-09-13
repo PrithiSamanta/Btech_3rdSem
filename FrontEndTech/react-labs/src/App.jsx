@@ -19,6 +19,7 @@ import A1_21 from "./Lab21/A1";
 import A2_21 from "./Lab21/A2";
 import A_18 from "./Lab18/A/App";
 import B_18 from "./Lab18/B/App";
+import App19 from "./Lab19/App";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="a" element={<A_18 />} />
               <Route path="b" element={<B_18 />} />
             </Route>
+            <Route path="/lab19" element={<App19 />}></Route>
             <Route path="/lab20" element={<Layout20 />}>
               <Route path="home" element={<Home20 />} />
               <Route path="services" element={<Services20 />} />
