@@ -20,6 +20,15 @@ import A2_21 from "./Lab21/A2";
 import A_18 from "./Lab18/A/App";
 import B_18 from "./Lab18/B/App";
 import App19 from "./Lab19/App";
+import Layout22 from "./Lab22/Layout";
+import A1_22 from "./Lab22/A1";
+import Layout23 from "./Lab23/Layout";
+import A1_23 from "./Lab23/A1";
+import Layout24 from "./Lab24/Layout";
+import A1_24 from "./Lab24/A1";
+import A1Add from "./Lab24/A1Add";
+import A1Details from "./Lab24/A1Details";
+import A1Update from "./Lab24/A1Update";
 
 function App() {
   return (
@@ -48,6 +57,18 @@ function App() {
             <Route path="/lab21" element={<Layout21 />}>
               <Route path="a1" element={<A1_21 />} />
               <Route path="a2" element={<A2_21 />} />
+            </Route>
+            <Route path="/lab22" element={<Layout22 />}>
+              <Route path="a1" element={<A1_22 />} />
+            </Route>
+            <Route path="/lab23" element={<Layout23 />}>
+              <Route path="a1" element={<A1_23 />} />
+            </Route>
+            <Route path="/lab24" element={<Layout24 />}>
+              <Route path="a1" element={<A1_24 />} />
+              <Route path="add" element={<A1Add />} />
+              <Route path="details/:id" element={<A1Details />} />
+              <Route path="update/:id" element={<A1Update />} />
             </Route>
           </Route>
         </Routes>
